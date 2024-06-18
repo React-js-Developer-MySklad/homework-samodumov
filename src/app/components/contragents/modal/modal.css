@@ -1,0 +1,42 @@
+.modal {
+    overflow-x: hidden;
+    overflow-y: auto;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-height: 100%;
+    height: calc(100% - 1rem);
+    z-index: 50;
+    position: fixed;
+    display: flex;
+}
+
+.hidden {
+    display: none !important;
+}
+
+@media (min-width: 768px) {
+    .modal {
+        inset: 0;
+    }
+}
+
+.m-width {
+    max-width: 500px;
+    width: 100%;
+}
+
+.m-body {
+    margin-bottom: 2rem;
+}
+
+.m-property {
+    margin-bottom: 10px;
+}
+
+.m-button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
