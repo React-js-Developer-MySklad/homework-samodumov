@@ -5,9 +5,18 @@ import './table.css';
 
 export function createTable() {
 
+    const main = document.createElement("main");
+    main.className = "t-main";
+
+    const div = document.createElement("div");
+    div.className = "t-container-div";
+
+    main.appendChild(div);
+
     const table = document.createElement("table");
     table.id = "table-id";
     table.className = "w-full text-sm text-gray-500";
+    div.appendChild(table);
 
     const tableHeader = table.createTHead();
     tableHeader.className = "t-head";
@@ -35,7 +44,7 @@ export function createTable() {
     const tableBody = table.createTBody();
     tableBody.id = "table-body-id";
 
-    return table;
+    return main;
 }
 
 export function addRow(row) {
