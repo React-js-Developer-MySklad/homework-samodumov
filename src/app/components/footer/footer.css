@@ -1,0 +1,23 @@
+.f-container {
+    --tw-bg-opacity: 1;
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 0.5rem;
+    margin: 1rem;
+}
+
+.f-div {
+    padding: 0.25rem;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.f-content {
+    text-align: center;
+    --tw-text-opacity: 1;
+    color: rgba(107, 114, 128, 1);
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    display: block;
+}
+
