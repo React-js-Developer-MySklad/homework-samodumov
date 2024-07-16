@@ -8,6 +8,10 @@ import {Counterparty} from "../model/Counterparty";
 const root = document.createElement('div');
 document.body.appendChild(root);
 
+beforeEach(() => {
+    getAllCounterparties().then((cs:Counterparty[]) => cs.forEach(c => removeCounterparty(c).then()));
+});
+
 describe('BackendService', () => {
 
     test('get all counterparties return empty',  () => {
