@@ -22,14 +22,15 @@
     font-size: 16px;
 }
 
-.t-main {
-    flex: 1 1 auto;
-    width: 75%;
-    margin-left: auto;
-    margin-right: auto;
+table {
+    width: 100%;
 }
 
 .t-container-div {
     overflow-x: auto;
     position: relative;
+}
+
+.t-tr-delete {
+    cursor: pointer;
 }
