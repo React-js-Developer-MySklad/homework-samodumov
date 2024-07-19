@@ -1,11 +1,11 @@
 export class Counterparty {
-    id: number;
+    id: string;
     name: string;
     address: string;
-    inn: number;
-    kpp: number;
+    inn: string;
+    kpp: string;
 
-    constructor(id: number, name: string, inn: number, address: string, kpp: number) {
+    constructor(id: string, name: string, inn: string, address: string, kpp: string) {
         this.id = id;
         this.name = name;
         this.address = address;
