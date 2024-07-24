@@ -1,17 +1,19 @@
-import React from "react";
+import React, {useContext} from "react";
 
 import './table.css';
 import {Counterparty} from "../../../model/Counterparty";
 
 import closeIcon from '../../../../resources/close-icon.svg';
+import {CounterpartyContext} from "../../../context/AppContextProvider";
 
 type TableProps = {
     openModal: (counterparty: Counterparty) => void;
-    dropCounterparty: (counterparty: Counterparty) => void;
-    counterparties: Array<Counterparty>;
 }
 
 export const Table: React.FC<TableProps> = (props:TableProps) => {
+
+    const {counterparties, dropCounterparty} = useContext(CounterpartyContext);
+
     return (
         <div className={"t-container-div"}>
             <table>
@@ -26,13 +28,13 @@ export const Table: React.FC<TableProps> = (props:TableProps) => {
                 </thead>
                 <tbody>
                 {
-                    props.counterparties.map(c => {
+                    counterparties.map(c => {
                         return <tr onDoubleClick={() => props.openModal(c)} key={c.id}>
                             <th>{c.name}</th>
                             <th>{c.inn}</th>
                             <th>{c.address}</th>
                             <th>{c.kpp}</th>
-                            <th scope="row" onClick={() => props.dropCounterparty(c)}>
+                            <th scope="row" onClick={() => dropCounterparty(c)}>
                                 <button className={"t-tr-delete"} type={"button"}>
                                     <img src={closeIcon} alt={"Удалить"} width={10} height={10}/>
                                 </button>
