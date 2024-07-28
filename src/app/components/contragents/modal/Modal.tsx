@@ -1,14 +1,14 @@
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 
 import './modal.css';
 import {Counterparty} from "../../../model/Counterparty";
 
 import closeIcon from '../../../../resources/close-icon.svg';
 import {Button} from "../../button/Button";
+import {useCounterpartyContext} from "../../../context/CounterpartyContext";
 
 type ModalProps = {
     close : () => void;
-    saveCounterparty: (counterparty: Counterparty) => void;
     counterparty?: Counterparty
 }
 
@@ -16,10 +16,21 @@ export const Modal: React.FC<ModalProps> = (props:ModalProps) => {
 
     const [counterparty, setCounterparty] = useState<Counterparty>(props.counterparty);
 
+    const {saveCounterparty} = useCounterpartyContext();
+
     const handleSubmit = (event: React.FormEvent) => {
         event.preventDefault();
 
-        props.saveCounterparty(counterparty);
+        saveCounterparty(
+            new Counterparty(
+                counterparty.id,
+                counterparty.name,
+                counterparty.inn,
+                counterparty.address,
+                counterparty.kpp
+            )
+        );
+
         props.close();
     }
 

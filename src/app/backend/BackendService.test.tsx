@@ -9,7 +9,7 @@ const root = document.createElement('div');
 document.body.appendChild(root);
 
 beforeEach(() => {
-    getAllCounterparties().then((cs:Counterparty[]) => cs.forEach(c => removeCounterparty(c).then()));
+    getAllCounterparties().then(res => res.json()).then((cs:Counterparty[]) => cs.forEach(c => removeCounterparty(c).then()));
 });
 
 describe('BackendService', () => {
@@ -24,13 +24,13 @@ describe('BackendService', () => {
     });
 
     it('save counterparty is successful', async () => {
-        const c = new Counterparty(undefined, 'name', 123, 'address', 555);
+        const c = new Counterparty(undefined, 'name', "123", 'address', "555");
         const counterparties = await ensureCounterparty(c);
         expect(counterparties).toHaveLength(1);
     });
 
     it('remove counterparty is successfull', async () => {
-        const c = new Counterparty(undefined, 'name', 123, 'address', 555);
+        const c = new Counterparty(undefined, 'name', "123", 'address', "555");
 
         await ensureCounterparty(c);
 
