@@ -4,7 +4,7 @@ import './table.css';
 import {Counterparty} from "../../../model/Counterparty";
 
 import closeIcon from '../../../../resources/close-icon.svg';
-import {CounterpartyContext} from "../../../context/AppContextProvider";
+import {useCounterpartyContext} from "../../../context/CounterpartyContext";
 
 type TableProps = {
     openModal: (counterparty: Counterparty) => void;
@@ -12,7 +12,7 @@ type TableProps = {
 
 export const Table: React.FC<TableProps> = (props:TableProps) => {
 
-    const {counterparties, dropCounterparty} = useContext(CounterpartyContext);
+    const {counterparties, dropCounterparty} = useCounterpartyContext();
 
     return (
         <div className={"t-container-div"}>

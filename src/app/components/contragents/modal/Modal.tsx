@@ -5,7 +5,7 @@ import {Counterparty} from "../../../model/Counterparty";
 
 import closeIcon from '../../../../resources/close-icon.svg';
 import {Button} from "../../button/Button";
-import {CounterpartyContext} from "../../../context/AppContextProvider";
+import {useCounterpartyContext} from "../../../context/CounterpartyContext";
 
 type ModalProps = {
     close : () => void;
@@ -16,7 +16,7 @@ export const Modal: React.FC<ModalProps> = (props:ModalProps) => {
 
     const [counterparty, setCounterparty] = useState<Counterparty>(props.counterparty);
 
-    const {saveCounterparty} = useContext(CounterpartyContext);
+    const {saveCounterparty} = useCounterpartyContext();
 
     const handleSubmit = (event: React.FormEvent) => {
         event.preventDefault();
